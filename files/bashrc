@@ -1,0 +1,39 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+export PS1='\u@\h:\w\$ '
+umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+export LS_OPTIONS='--color=auto'
+eval `dircolors`
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -l'
+alias l='ls $LS_OPTIONS -lA'
+
+# Some more alias to avoid making mistakes:
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Set locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+# ROS2
+export ROS_OS_OVERRIDE=openembedded
+export ROS_DISTRO=foxy
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/usr/share/pkgconfig"
+
+source /usr/bin/ros_setup.bash
+
+
+echo " __      _______ _  ____  ___   ___     _____   ____   _____ ___  ";
+echo " \ \    / / ____| |/ /_ |/ _ \ / _ \   |  __ \ / __ \ / ____|__ \ ";
+echo "  \ \  / / |    | ' / | | (_) | | | |  | |__) | |  | | (___    ) |";
+echo "   \ \/ /| |    |  <  | |\__, | | | |  |  _  /| |  | |\___ \  / / ";
+echo "    \  / | |____| . \ | |  / /| |_| |  | | \ \| |__| |____) |/ /_ ";
+echo "     \/   \_____|_|\_\|_| /_/  \___/   |_|  \_\\____/|_____/|____|";
+echo "                                                                  ";
+echo "                                                                  ";
