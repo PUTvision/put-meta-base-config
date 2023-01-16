@@ -8,17 +8,13 @@ SRC_URI += "file://bashrc"
 
 
 do_install () {
-  mkdir -p ${D}/home/put
-  install -m 0777 ${S}/bashrc                    ${D}/home/put/.bashrc
-
+  mkdir -p ${D}/home/root
+  install -m 0777 ${S}/bashrc                    ${D}/home/root/.bashrc
+  install -m 0777 ${S}/bashrc                    ${D}/home/root/.bash_profile
 }
 
-pkg_postinst_${PN} () {
-  chmod -R 775 ${D}/home/
-  chown put:put -R ${D}/home/
-}
-
-FILES:${PN} += "/home/put/.bashrc"
+FILES:${PN} += "/home/root/.bashrc"
+FILES:${PN} += "/home/root/.bash_profile"
 
 do_confiugre() {
   export SHELL = "/bin/bash"
